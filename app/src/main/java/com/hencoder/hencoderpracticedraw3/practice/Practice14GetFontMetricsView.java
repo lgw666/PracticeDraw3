@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class Practice14GetFontMetricsView extends View {
@@ -44,7 +45,7 @@ public class Practice14GetFontMetricsView extends View {
         // 然后计算出文字的绘制位置，从而让文字上下居中
         // 这种居中算法的优点是，可以让不同的文字的 baseline 对齐
 
-        int middle = (top + bottom) / 2;
+        int middle = (top + bottom) / 2 - (paint2.getFontMetricsInt().ascent + paint2.getFontMetricsInt().descent) / 2;
         canvas.drawText(texts[0], 100, middle, paint2);
         canvas.drawText(texts[1], 200, middle, paint2);
         canvas.drawText(texts[2], 300, middle, paint2);
@@ -52,4 +53,5 @@ public class Practice14GetFontMetricsView extends View {
         canvas.drawText(texts[4], 500, middle, paint2);
         canvas.drawText(texts[5], 600, middle, paint2);
     }
+
 }
